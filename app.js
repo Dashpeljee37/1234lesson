@@ -1,4 +1,4 @@
-var activePlayer = 1;
+var activePlayer = 0;
 
 var score = [0, 0];
 
@@ -23,14 +23,24 @@ document.querySelector(".btn-roll").addEventListener("click", function (){
         document.getElementById("current-"+ activePlayer).textContent = roundScore;
     }
     else{
-        document.getElementById("score-" + activePlayer).textContent = document.getElementById("score-" + activePlayer).textContent +  roundScore;
-        roundScore = 0
-        document.getElementById("current-"+ activePlayer).textContent = '0';
-        activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
-        document.querySelector(".player-0-panel").classList.toggle('active');
-        document.querySelector(".player-1-panel").classList.toggle('active');
+        changeUser();
         document.querySelector(".dice").style.display =  'none';
     }
 });
+document.querySelector(".btn-hold").addEventListener("click",function(){
+    score[activePlayer] = score[activePlayer] +  roundScore;
+    document.getElementById("score-" + activePlayer).textContent = score[activePlayer];
+    changeUser();
+})
 
+function changeUser(){
+    if (score[activePlayer] >= 100){
+        alert("Player " + (activePlayer + 1) + "яллаа");
+    }
+    document.querySelector(".player-0-panel").classList.toggle('active');
+    document.querySelector(".player-1-panel").classList.toggle('active');
+    document.getElementById("current-"+ activePlayer).textContent = '0';
+    activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+    roundScore = 0
+}
 // document.querySelector('#score-1').innerHTML = '<em> YES! </em>'
