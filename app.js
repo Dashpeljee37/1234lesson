@@ -18,6 +18,19 @@ document.querySelector(".btn-roll").addEventListener("click", function (){
     var diceNumber = Math.round(Math.random() * 5) + 1;
     diceDom.style.display = 'block';
     diceDom.src = "dice-" + diceNumber + ".png";
+    if (diceNumber !== 1) {
+        roundScore = roundScore + diceNumber;
+        document.getElementById("current-"+ activePlayer).textContent = roundScore;
+    }
+    else{
+        document.getElementById("score-" + activePlayer).textContent = document.getElementById("score-" + activePlayer).textContent +  roundScore;
+        roundScore = 0
+        document.getElementById("current-"+ activePlayer).textContent = '0';
+        activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+        document.querySelector(".player-0-panel").classList.toggle('active');
+        document.querySelector(".player-1-panel").classList.toggle('active');
+        document.querySelector(".dice").style.display =  'none';
+    }
 });
 
 // document.querySelector('#score-1').innerHTML = '<em> YES! </em>'
