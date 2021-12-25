@@ -29,4 +29,6 @@ switch(dice){
     default:
         document.querySelector(".dice").style.display = 'none';
 }
+
+console.log("fuck")
 // document.querySelector('#score-1').innerHTML = '<em> YES! </em>'
