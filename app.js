@@ -1,6 +1,7 @@
 var activePlayer = 0;
 var score = [0, 0];
 var roundScore = 0;
+var isGameOver = false;
 
 var diceDom = document.querySelector(".dice")
 
@@ -44,6 +45,7 @@ function changePlayer(){
 }
 
 function initGame(){
+    isGameOver = false;
     activePlayer = 0;
     score = [0, 0];
     roundScore = 0;
@@ -59,6 +61,8 @@ function initGame(){
     document.getElementById('score-1').textContent = '0';
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
+    document.querySelector(".btn-hold").style.display = 'block';
+    document.querySelector(".btn-roll").style.display = 'block';
     diceDom.style.display =  'none';
 }
 // document.querySelector('#score-1').innerHTML = '<em> YES! </em>'
