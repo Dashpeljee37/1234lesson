@@ -22,7 +22,7 @@ document.querySelector(".btn-roll").addEventListener("click", function (){
 document.querySelector(".btn-hold").addEventListener("click",function(){
     score[activePlayer] = score[activePlayer] +  roundScore;
     document.getElementById("score-" + activePlayer).textContent = score[activePlayer];
-    if (score[activePlayer] >= 20){
+    if (score[activePlayer] >= 100){
         document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
         document.querySelector(".player-" + activePlayer +"-panel").classList.add("winner");
         document.querySelector(".btn-hold").style.display = 'none';
